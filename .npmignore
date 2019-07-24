@@ -1,0 +1,34 @@
+# exclude
+tools
+demos
+
+# docs
+doc
+docs
+
+# tests
+test
+coverage
+
+# build tools
+.travis.yml
+.jenkins.yml
+.codeclimate.yml
+
+# linters
+.jscsrc
+.jshintrc
+.eslintrc*
+.estlintignore
+
+# editor settings
+.idea
+.editorconfig
+.vscode
+
+# osx
+.DS_Store
+
+# npm
+npm-debug.log
+npm-debug.log.*

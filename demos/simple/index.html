@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bonnie Parallax | Simple Example</title>
+  <script type="text/javascript" src="https://unpkg.com/@loupthibault/linkedlist@0.1.0/dist/linkedlist.umd.js"></script>
+  <script type="text/javascript" src="./../../dist/bonnie-parallax.umd.js"></script>
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+  <div class='img turtle-1'>
+    <img src='https://images.unsplash.com/photo-1496196614460-48988a57fccf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=80'>
+  </div>
+  <div class='img turtle-1' data-prllx-item data-delta-start='20v' data-delta-end='-20v'>
+    <img src='https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=80'>
+  </div>
+  <div class='img turtle-2'>
+    <img data-prllx-item data-based-on-parent='130' src='https://images.unsplash.com/photo-1508455858334-95337ba25607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&h=520&q=80'>
+  </div>
+  <div class='img turtle-1' data-prllx-item data-speed='.9'>
+    <img src='https://images.unsplash.com/photo-1416138645715-930585fe4ce2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=80'>
+  </div>
+  <div class='img turtle-1' data-prllx-item data-speed='1.2'>
+    <img src='https://images.unsplash.com/photo-1511168836158-bb7074a169eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=80'>
+  </div>
+
+  <script>
+    var Parallax = window.bonnieParallax.Parallax,
+        BasicRule = window.bonnieParallax.BasicRule;
+
+
+    var p = new Parallax({
+      el: document.body
+    });
+
+    p.addRule(new BasicRule());
+
+
+
+    var resize = function() {
+      p.current = document.scrollingElement.scrollTop;
+      p.setViewPort(window.innerWidth, window.innerHeight);
+      p.render();
+    };
+
+    var render = function() {
+      p.current = document.scrollingElement.scrollTop;
+      requestAnimationFrame(render);
+    };
+
+
+    window.addEventListener('resize', resize);
+    p.current = document.scrollingElement.scrollTop;
+    p.init();
+    resize();
+    render();
+
+  </script>
+</body>
+</html>
